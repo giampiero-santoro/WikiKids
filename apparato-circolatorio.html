@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🫀 Il Tuo Cuore Pompante! 💓</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --purple: #A8E6CF;
+            --orange: #FFB347;
+            --red: #E74C3C;
+            --pink: #FF6B9D;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .bubble {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 8s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--red), var(--pink));
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+            animation: slideDown 1s ease-out, heartbeat 2s infinite;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.05); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.05); }
+            40% { transform: scale(1); }
+        }
+
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab {
+            padding: 15px 30px;
+            background: white;
+            border: none;
+            border-radius: 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .tab:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, var(--red), var(--pink));
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .content {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin: 20px 0 10px 0;
+            font-weight: 700;
+        }
+
+        .card p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            margin-left: 30px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Interactive circulatory system */
+        .circulatory-system {
+            position: relative;
+            height: 800px;
+            background: linear-gradient(180deg, #FFE5E5 0%, #FFF3F3 100%);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .body-part {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.9);
+            border: 3px solid transparent;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .body-part:hover {
+            transform: scale(1.1);
+            border-color: var(--red);
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.5);
+            z-index: 10;
+        }
+
+        .body-part.clicked {
+            background: var(--accent);
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .heart { top: 250px; left: 50%; transform: translateX(-50%); background: #FF6B9D; font-size: 1.3rem; }
+        .lungs-left { top: 200px; left: 25%; background: #B3E5FC; }
+        .lungs-right { top: 200px; right: 25%; background: #B3E5FC; }
+        .arteries { top: 150px; left: 50%; transform: translateX(-50%); background: #FF6B6B; }
+        .veins { top: 450px; left: 50%; transform: translateX(-50%); background: #6495ED; }
+        .capillaries { top: 350px; left: 65%; background: #DDA0DD; }
+        .blood { top: 550px; left: 50%; transform: translateX(-50%); background: #DC143C; }
+
+        .info-box {
+            position: absolute;
+            background: white;
+            border: 4px solid var(--red);
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 350px;
+            display: none;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            z-index: 100;
+            animation: popIn 0.3s ease;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .info-box.show {
+            display: block;
+        }
+
+        .info-box h4 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 10px;
+        }
+
+        /* Quiz */
+        .quiz-container {
+            background: linear-gradient(135deg, var(--red), var(--pink));
+            padding: 40px;
+            border-radius: 25px;
+            color: white;
+        }
+
+        .quiz-question {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 15px;
+        }
+
+        .quiz-option {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: 3px solid transparent;
+        }
+
+        .quiz-option:hover {
+            transform: translateX(10px);
+            border-color: var(--accent);
+        }
+
+        .quiz-option.correct {
+            background: #4CAF50;
+            color: white;
+            animation: celebrate 0.6s ease;
+        }
+
+        .quiz-option.wrong {
+            background: #F44336;
+            color: white;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes celebrate {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .score {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 20px;
+            font-weight: 700;
+        }
+
+        .fun-fact {
+            background: linear-gradient(135deg, var(--red), var(--pink));
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            border-left: 8px solid var(--accent);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .fun-fact::before {
+            content: "💡 Lo sapevi?";
+            display: block;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .memory-game {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 30px;
+            background: white;
+            border-radius: 25px;
+        }
+
+        .memory-card {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--red), var(--pink));
+            border-radius: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            transition: transform 0.3s ease;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .memory-card:hover {
+            transform: scale(1.05);
+        }
+
+        .memory-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .memory-card .front,
+        .memory-card .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+        }
+
+        .memory-card .back {
+            background: white;
+            transform: rotateY(180deg);
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--red), var(--pink));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .congrats {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--accent);
+            margin: 30px 0;
+            animation: rainbow 3s infinite;
+        }
+
+        @keyframes rainbow {
+            0% { color: #FF6B6B; }
+            25% { color: #4ECDC4; }
+            50% { color: #FFE66D; }
+            75% { color: #A8E6CF; }
+            100% { color: #FF6B6B; }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.2rem; }
+            .circulatory-system { height: 600px; }
+            .memory-game { grid-template-columns: repeat(3, 1fr); }
+        }
+    
+        /* ── nav bar (back + home) ── */
+        .wk-nav {
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            display: flex;
+            gap: 12px;
+            animation: navSlideDown 0.6s cubic-bezier(0.175,0.885,0.32,1.275) both;
+        }
+        @keyframes navSlideDown {
+            from { transform: translateX(-50%) translateY(-60px); opacity:0; }
+            to   { transform: translateX(-50%) translateY(0);     opacity:1; }
+        }
+        .wk-nav a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: rgba(30, 30, 60, 0.55);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        .wk-nav a:hover {
+            background: rgba(30, 30, 60, 0.78);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(0,0,0,0.35);
+        }
+        .wk-nav a:active {
+            transform: translateY(0px);
+        }
+        .wk-nav .nav-icon { font-size: 1.2rem; line-height:1; }
+    </style>
+</head>
+<body>
+    <div class="bubble" style="width: 100px; height: 100px; top: 10%; left: 10%;"></div>
+    <div class="bubble" style="width: 150px; height: 150px; top: 60%; left: 80%; animation-delay: 2s;"></div>
+    <div class="bubble" style="width: 80px; height: 80px; top: 80%; left: 20%; animation-delay: 4s;"></div>
+    <div class="bubble" style="width: 120px; height: 120px; top: 30%; left: 70%; animation-delay: 1s;"></div>
+
+        <!-- back / home nav -->
+    <nav class="wk-nav">
+        <a href="javascript:history.back()" aria-label="Torna indietro">
+            <span class="nav-icon">←</span> Indietro
+        </a>
+        <a href="index_unified.html" aria-label="Homepage">
+            <span class="nav-icon">🏠</span> Home
+        </a>
+    </nav>
+
+<div class="container">
+        <header>
+            <h1>🫀 IL TUO CUORE POMPANTE! 💓</h1>
+            <p class="subtitle">Scopri l'autostrada del sangue che attraversa tutto il tuo corpo!</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('impara')">📚 Impara</button>
+            <button class="tab" onclick="showTab('esplora')">🔍 Esplora</button>
+            <button class="tab" onclick="showTab('quiz')">🎯 Quiz</button>
+            <button class="tab" onclick="showTab('gioca')">🎮 Gioca</button>
+        </div>
+
+        <!-- Tab 1: Impara -->
+        <div id="impara" class="content active">
+            <div class="card">
+                <h2>🚗 L'Apparato Circolatorio - L'Autostrada del Corpo!</h2>
+                <p>Il tuo corpo ha un'incredibile rete di "strade" dove viaggia un liquido speciale: il <strong>SANGUE</strong>! L'<strong>apparato circolatorio</strong> (o cardiovascolare) è come un sistema di autostrade, strade e stradine che portano tutto quello che serve alle tue cellule per vivere!</p>
+                <p>È composto da tre componenti principali:</p>
+                <p>🫀 <strong>Il CUORE</strong> - La pompa centrale (il motore!)</p>
+                <p>🛣️ <strong>I VASI SANGUIGNI</strong> - Le strade (arterie, vene, capillari)</p>
+                <p>💉 <strong>Il SANGUE</strong> - Il trasportatore (circa 5 litri nel tuo corpo!)</p>
+            </div>
+
+            <div class="card">
+                <h3>🫀 IL CUORE - Il Tuo Super Motore!</h3>
+                <p>Il cuore è un muscolo speciale che batte senza mai fermarsi, giorno e notte! È grande come il tuo pugno e batte circa <strong>100.000 volte al giorno</strong>! In tutta la tua vita batterà più di 3 miliardi di volte! 🤯</p>
+                
+                <div class="fun-fact">
+                    Il tuo cuore pompa ogni giorno circa 7.000 litri di sangue! È come riempire 35 vasche da bagno! 🛁
+                </div>
+
+                <p><strong>Il cuore ha 4 camere (come 4 stanze):</strong></p>
+                <p>📍 <strong>Atrio DESTRO</strong> - Riceve il sangue "usato" dal corpo</p>
+                <p>📍 <strong>Ventricolo DESTRO</strong> - Pompa il sangue ai polmoni per ossigenarlo</p>
+                <p>📍 <strong>Atrio SINISTRO</strong> - Riceve il sangue fresco dai polmoni</p>
+                <p>📍 <strong>Ventricolo SINISTRO</strong> - Pompa il sangue a tutto il corpo (il più forte!)</p>
+
+                <p><strong>Come funziona il battito?</strong></p>
+                <p>💓 <strong>SISTOLE</strong> - Il cuore si contrae e spinge il sangue fuori</p>
+                <p>💗 <strong>DIASTOLE</strong> - Il cuore si rilassa e si riempie di sangue</p>
+
+                <div class="fun-fact">
+                    Il suono "LUB-DUB" che senti col battito è il rumore delle valvole del cuore che si chiudono! 🎵
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>🛣️ I VASI SANGUIGNI - Le Autostrade del Sangue!</h3>
+                <p>Nel tuo corpo ci sono circa <strong>100.000 km di vasi sanguigni</strong>! Se li mettessi in fila potresti fare più di 2 volte il giro della Terra! 🌍</p>
+
+                <p><strong>Ci sono 3 tipi di "strade":</strong></p>
+                
+                <p>🔴 <strong>ARTERIE</strong> - Le autostrade veloci!</p>
+                <p style="margin-left: 40px;">• Portano sangue OSSIGENATO (rosso vivo) dal cuore al corpo</p>
+                <p style="margin-left: 40px;">• Hanno pareti spesse e forti per resistere alla pressione</p>
+                <p style="margin-left: 40px;">• L'arteria più grande è l'<strong>AORTA</strong> (larga come un tubo da giardino!)</p>
+
+                <p>🔵 <strong>VENE</strong> - Le strade di ritorno!</p>
+                <p style="margin-left: 40px;">• Riportano il sangue DEOSSIGENATO (rosso scuro) al cuore</p>
+                <p style="margin-left: 40px;">• Hanno valvole che impediscono al sangue di tornare indietro</p>
+                <p style="margin-left: 40px;">• Le pareti sono più sottili delle arterie</p>
+
+                <p>💜 <strong>CAPILLARI</strong> - I vicoletti microscopici!</p>
+                <p style="margin-left: 40px;">• Sono sottilissimi (più sottili di un capello!)</p>
+                <p style="margin-left: 40px;">• Qui avvengono gli scambi: ossigeno e nutrienti escono, sostanze di scarto entrano</p>
+                <p style="margin-left: 40px;">• Sono così tanti che ogni cellula ne ha uno vicino!</p>
+
+                <div class="fun-fact">
+                    I capillari sono così sottili che i globuli rossi devono passare in fila indiana! 🚶‍♂️🚶‍♀️
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>💉 IL SANGUE - Il Trasportatore Magico!</h3>
+                <p>Il sangue è un liquido super speciale! È rosso perché contiene milioni di cellule rosse piene di una proteina chiamata <strong>EMOGLOBINA</strong> che trasporta l'ossigeno.</p>
+
+                <p><strong>Il sangue è fatto di due parti:</strong></p>
+                
+                <p>💧 <strong>PLASMA</strong> (55%) - La parte liquida</p>
+                <p style="margin-left: 40px;">• È giallastro e trasparente</p>
+                <p style="margin-left: 40px;">• Trasporta nutrienti, ormoni, proteine</p>
+                <p style="margin-left: 40px;">• È fatto per il 90% di acqua</p>
+
+                <p>🔴 <strong>ELEMENTI CORPUSCOLATI</strong> (45%) - Le cellule</p>
+                <p style="margin-left: 40px;">• <strong>Globuli ROSSI</strong> (eritrociti) - Trasportano ossigeno (ne hai 25 miliardi!)</p>
+                <p style="margin-left: 40px;">• <strong>Globuli BIANCHI</strong> (leucociti) - I soldati che combattono le infezioni</p>
+                <p style="margin-left: 40px;">• <strong>PIASTRINE</strong> - Le "rappezzatrici" che fermano le emorragie</p>
+
+                <div class="fun-fact">
+                    Ogni secondo il tuo corpo produce 2 milioni di globuli rossi nuovi! Il tuo corpo è una fabbrica super efficiente! 🏭
+                </div>
+
+                <p><strong>I Super Poteri del Sangue:</strong></p>
+                <ul>
+                    <li>🫁 <strong>RESPIRAZIONE</strong> - Porta ossigeno e porta via anidride carbonica</li>
+                    <li>🍕 <strong>NUTRIZIONE</strong> - Trasporta zuccheri, grassi, proteine alle cellule</li>
+                    <li>🗑️ <strong>PULIZIA</strong> - Raccoglie le sostanze di scarto e le porta ai reni</li>
+                    <li>🛡️ <strong>DIFESA</strong> - I globuli bianchi combattono i germi</li>
+                    <li>🌡️ <strong>TERMOREGOLAZIONE</strong> - Aiuta a mantenere la temperatura corporea</li>
+                    <li>📬 <strong>MESSAGGERO</strong> - Trasporta ormoni (messaggi chimici)</li>
+                    <li>🩹 <strong>RIPARAZIONE</strong> - Coagula per fermare le emorragie</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🔄 Le Due Circolazioni - Il Doppio Circuito!</h3>
+                <p>Il sangue fa due viaggi diversi:</p>
+
+                <p>🫁 <strong>PICCOLA CIRCOLAZIONE (Polmonare)</strong></p>
+                <p style="margin-left: 40px;">1️⃣ Il sangue "usato" parte dal ventricolo DESTRO</p>
+                <p style="margin-left: 40px;">2️⃣ Va ai POLMONI attraverso l'arteria polmonare</p>
+                <p style="margin-left: 40px;">3️⃣ Nei polmoni: SCARICA l'anidride carbonica e CARICA l'ossigeno</p>
+                <p style="margin-left: 40px;">4️⃣ Torna al cuore (atrio SINISTRO) attraverso le vene polmonari</p>
+
+                <p>🌍 <strong>GRANDE CIRCOLAZIONE (Sistemica)</strong></p>
+                <p style="margin-left: 40px;">1️⃣ Il sangue fresco parte dal ventricolo SINISTRO</p>
+                <p style="margin-left: 40px;">2️⃣ Va a TUTTO IL CORPO attraverso l'aorta</p>
+                <p style="margin-left: 40px;">3️⃣ Nei tessuti: SCARICA ossigeno e nutrienti, CARICA anidride carbonica e scorie</p>
+                <p style="margin-left: 40px;">4️⃣ Torna al cuore (atrio DESTRO) attraverso le vene cave</p>
+
+                <div class="fun-fact">
+                    Un giro completo del sangue (cuore → corpo → cuore) dura solo 1 MINUTO! Il tuo sangue fa 1.440 giri completi al giorno! 🎢
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🌟 Curiosità Incredibili!</h2>
+                <ul>
+                    <li>🫀 Il cuore di un adulto pesa circa 300 grammi (come 3 mele!)</li>
+                    <li>💓 Un bambino ha un battito più veloce degli adulti (80-100 al minuto!)</li>
+                    <li>🩸 Il tuo corpo produce circa 2 milioni di globuli rossi OGNI SECONDO!</li>
+                    <li>🔴 Un globulo rosso vive circa 120 giorni, poi viene "riciclato"</li>
+                    <li>🌡️ Il sangue rappresenta circa il 7-8% del tuo peso corporeo</li>
+                    <li>💪 Il cuore è il muscolo che lavora di più nel corpo!</li>
+                    <li>🎵 Il ritmo del battito cambia con le emozioni: rallenta quando sei calmo, accelera quando sei eccitato!</li>
+                    <li>🐘 Il cuore di una balena blu può pesare fino a 600 kg!</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab 2: Esplora -->
+        <div id="esplora" class="content">
+            <div class="card">
+                <h2>🔍 Esplora l'Apparato Circolatorio!</h2>
+                <p>Clicca su ogni parte per scoprire i suoi segreti!</p>
+                
+                <div class="circulatory-system">
+                    <div class="body-part heart" onclick="showInfo('heart')">
+                        🫀 CUORE
+                    </div>
+                    <div class="body-part lungs-left" onclick="showInfo('lungs')">
+                        🫁 POLMONE SX
+                    </div>
+                    <div class="body-part lungs-right" onclick="showInfo('lungs')">
+                        🫁 POLMONE DX
+                    </div>
+                    <div class="body-part arteries" onclick="showInfo('arteries')">
+                        🔴 ARTERIE
+                    </div>
+                    <div class="body-part veins" onclick="showInfo('veins')">
+                        🔵 VENE
+                    </div>
+                    <div class="body-part capillaries" onclick="showInfo('capillaries')">
+                        💜 CAPILLARI
+                    </div>
+                    <div class="body-part blood" onclick="showInfo('blood')">
+                        💉 SANGUE
+                    </div>
+
+                    <!-- Info boxes -->
+                    <div id="info-heart" class="info-box" style="top: 250px; right: 50px;">
+                        <h4>🫀 IL CUORE</h4>
+                        <p>👊 Grande come il tuo pugno</p>
+                        <p>💓 Batte 100.000 volte al giorno</p>
+                        <p>🏠 Ha 4 camere (2 atri + 2 ventricoli)</p>
+                        <p>⚡ Pompa 7.000 litri di sangue al giorno</p>
+                    </div>
+
+                    <div id="info-lungs" class="info-box" style="top: 200px; right: 50px;">
+                        <h4>🫁 I POLMONI</h4>
+                        <p>🫁 Ossigenano il sangue</p>
+                        <p>💨 Ricevono sangue dal ventricolo destro</p>
+                        <p>🔄 Scambiano O2 e CO2</p>
+                        <p>💓 Rimandano sangue fresco all'atrio sinistro</p>
+                    </div>
+
+                    <div id="info-arteries" class="info-box" style="top: 150px; right: 50px;">
+                        <h4>🔴 LE ARTERIE</h4>
+                        <p>🚀 Portano sangue OSSIGENATO</p>
+                        <p>💪 Pareti spesse e resistenti</p>
+                        <p>🌊 Alta pressione</p>
+                        <p>🎯 L'aorta è la più grande</p>
+                    </div>
+
+                    <div id="info-veins" class="info-box" style="top: 450px; right: 50px;">
+                        <h4>🔵 LE VENE</h4>
+                        <p>🔙 Riportano sangue al cuore</p>
+                        <p>🚪 Hanno valvole anti-ritorno</p>
+                        <p>📉 Bassa pressione</p>
+                        <p>🎯 Le vene cave sono le più grandi</p>
+                    </div>
+
+                    <div id="info-capillaries" class="info-box" style="top: 350px; left: 50px;">
+                        <h4>💜 I CAPILLARI</h4>
+                        <p>🔬 Microscopici e sottilissimi</p>
+                        <p>🔄 Permettono gli scambi</p>
+                        <p>📍 Vicini a ogni cellula</p>
+                        <p>🚶 I globuli rossi passano in fila!</p>
+                    </div>
+
+                    <div id="info-blood" class="info-box" style="top: 550px; right: 50px;">
+                        <h4>💉 IL SANGUE</h4>
+                        <p>🔴 5 litri nel corpo</p>
+                        <p>💧 55% plasma + 45% cellule</p>
+                        <p>🔴 Globuli rossi: ossigeno</p>
+                        <p>⚪ Globuli bianchi: difesa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Quiz -->
+        <div id="quiz" class="content">
+            <div class="card">
+                <div class="quiz-container">
+                    <h2 style="color: white; margin-bottom: 30px;">🎯 Metti alla Prova le Tue Conoscenze!</h2>
+                    
+                    <div id="quiz-content">
+                        <div class="quiz-question" id="question"></div>
+                        <div class="quiz-options" id="options"></div>
+                    </div>
+
+                    <div class="score" id="score">Punteggio: 0/0</div>
+                    <button onclick="resetQuiz()" style="margin-top: 20px;">🔄 Ricomincia Quiz</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Gioca -->
+        <div id="gioca" class="content">
+            <div class="card">
+                <h2>🎮 Memory Game - Trova le Coppie!</h2>
+                <p>Trova le coppie dell'apparato circolatorio! Clicca su due carte per girarle.</p>
+                
+                <div class="memory-game" id="memory-game"></div>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <button onclick="initMemoryGame()">🔄 Nuova Partita</button>
+                    <div id="moves" style="margin-top: 15px; font-size: 1.5rem; font-weight: 700;">Mosse: 0</div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 30px;">
+                <h2>🎨 Scrivi e Impara!</h2>
+                <p>Cosa hai imparato oggi sul cuore e la circolazione? Scrivi qui sotto!</p>
+                <textarea style="width: 100%; height: 150px; font-size: 1.2rem; padding: 15px; border-radius: 15px; border: 3px solid var(--secondary); font-family: 'Quicksand', sans-serif;" placeholder="Scrivi qui la cosa più interessante che hai imparato oggi sull'apparato circolatorio! 🎉"></textarea>
+            </div>
+        </div>
+
+        <footer>
+            <p>📚 Informazioni scientifiche basate su contenuti di <a href="https://it.wikipedia.org/wiki/Apparato_circolatorio" target="_blank">Wikipedia</a></p>
+            <p style="font-size: 0.8rem; opacity: 0.8;">Contenuti rilasciati sotto licenza Creative Commons Attribution-ShareAlike 3.0</p>
+            <p style="margin-top: 15px; font-size: 1.2rem;">💡 Creato per imparare divertendosi! 🎉</p>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        let currentInfo = null;
+        
+        function showInfo(partId) {
+            const infoBox = document.getElementById(`info-${partId}`);
+            const part = event.target;
+            
+            if (currentInfo && currentInfo !== infoBox) {
+                currentInfo.classList.remove('show');
+            }
+            
+            if (infoBox.classList.contains('show')) {
+                infoBox.classList.remove('show');
+                currentInfo = null;
+            } else {
+                infoBox.classList.add('show');
+                part.classList.add('clicked');
+                setTimeout(() => part.classList.remove('clicked'), 500);
+                currentInfo = infoBox;
+            }
+        }
+
+        const quizQuestions = [
+            {
+                question: "Quante volte batte il cuore in un giorno?",
+                options: ["10.000 volte", "50.000 volte", "100.000 volte", "1.000.000 volte"],
+                correct: 2
+            },
+            {
+                question: "Quante camere ha il cuore?",
+                options: ["2", "3", "4", "5"],
+                correct: 2
+            },
+            {
+                question: "Quanto sangue c'è nel corpo di un adulto?",
+                options: ["1 litro", "3 litri", "Circa 5 litri", "10 litri"],
+                correct: 2
+            },
+            {
+                question: "Cosa trasportano le arterie?",
+                options: ["Sangue deossigenato", "Sangue ossigenato", "Solo acqua", "Solo nutrienti"],
+                correct: 1
+            },
+            {
+                question: "Cosa fanno le piastrine?",
+                options: ["Trasportano ossigeno", "Combattono infezioni", "Fermano le emorragie", "Producono energia"],
+                correct: 2
+            },
+            {
+                question: "Quanto è lunga la rete di vasi sanguigni nel corpo?",
+                options: ["100 metri", "1.000 km", "10.000 km", "Circa 100.000 km"],
+                correct: 3
+            },
+            {
+                question: "Come si chiama la fase in cui il cuore si contrae?",
+                options: ["Diastole", "Sistole", "Peristalsi", "Pulsazione"],
+                correct: 1
+            },
+            {
+                question: "Dove va il sangue nella piccola circolazione?",
+                options: ["Al cervello", "Ai polmoni", "Allo stomaco", "Ai muscoli"],
+                correct: 1
+            },
+            {
+                question: "Qual è l'arteria più grande del corpo?",
+                options: ["Carotide", "Femorale", "Aorta", "Polmonare"],
+                correct: 2
+            },
+            {
+                question: "Quanto dura un giro completo del sangue nel corpo?",
+                options: ["10 secondi", "Circa 1 minuto", "5 minuti", "1 ora"],
+                correct: 1
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            if (currentQuestion >= quizQuestions.length) {
+                showQuizResults();
+                return;
+            }
+
+            const q = quizQuestions[currentQuestion];
+            document.getElementById('question').textContent = q.question;
+            
+            const optionsDiv = document.getElementById('options');
+            optionsDiv.innerHTML = '';
+            
+            q.options.forEach((option, index) => {
+                const btn = document.createElement('div');
+                btn.className = 'quiz-option';
+                btn.textContent = option;
+                btn.onclick = () => checkAnswer(index);
+                optionsDiv.appendChild(btn);
+            });
+
+            updateScore();
+        }
+
+        function checkAnswer(selected) {
+            const q = quizQuestions[currentQuestion];
+            const options = document.querySelectorAll('.quiz-option');
+            
+            if (selected === q.correct) {
+                options[selected].classList.add('correct');
+                score++;
+                setTimeout(() => {
+                    currentQuestion++;
+                    loadQuestion();
+                }, 1500);
+            } else {
+                options[selected].classList.add('wrong');
+                options[q.correct].classList.add('correct');
+                setTimeout(() => {
+                    currentQuestion++;
+                    loadQuestion();
+                }, 2000);
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = `Punteggio: ${score}/${currentQuestion}`;
+        }
+
+        function showQuizResults() {
+            const percentage = (score / quizQuestions.length) * 100;
+            let message = '';
+            
+            if (percentage === 100) {
+                message = '🏆 PERFETTO! Sei un esperto del cuore! 🌟';
+            } else if (percentage >= 70) {
+                message = '🎉 Bravissimo! Il cuore non ha segreti per te! 👏';
+            } else if (percentage >= 50) {
+                message = '😊 Buon lavoro! Continua a studiare! 📚';
+            } else {
+                message = '💪 Dai, riprova! Diventerai un esperto! 🚀';
+            }
+
+            document.getElementById('quiz-content').innerHTML = `
+                <div style="text-align: center;">
+                    <h2 class="congrats">${message}</h2>
+                    <p style="font-size: 2.5rem; margin: 30px 0;">
+                        Hai risposto correttamente a ${score} domande su ${quizQuestions.length}!
+                    </p>
+                    <p style="font-size: 3rem;">${percentage >= 70 ? '🎊🎉🎈' : '📖💡🧠'}</p>
+                </div>
+            `;
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('quiz-content').innerHTML = `
+                <div class="quiz-question" id="question"></div>
+                <div class="quiz-options" id="options"></div>
+            `;
+            loadQuestion();
+        }
+
+        const memoryCards = ['🫀', '💓', '🩸', '🔴', '🔵', '🫁', '💉', '⚡'];
+        let memoryGameCards = [...memoryCards, ...memoryCards];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let moves = 0;
+
+        function initMemoryGame() {
+            matchedPairs = 0;
+            moves = 0;
+            flippedCards = [];
+            memoryGameCards = [...memoryCards, ...memoryCards].sort(() => Math.random() - 0.5);
+            
+            const gameDiv = document.getElementById('memory-game');
+            gameDiv.innerHTML = '';
+            
+            memoryGameCards.forEach((emoji, index) => {
+                const card = document.createElement('div');
+                card.className = 'memory-card';
+                card.innerHTML = `
+                    <div class="front">❓</div>
+                    <div class="back">${emoji}</div>
+                `;
+                card.dataset.index = index;
+                card.dataset.emoji = emoji;
+                card.onclick = flipCard;
+                gameDiv.appendChild(card);
+            });
+
+            document.getElementById('moves').textContent = 'Mosse: 0';
+        }
+
+        function flipCard() {
+            if (flippedCards.length === 2) return;
+            if (this.classList.contains('flipped')) return;
+
+            this.classList.add('flipped');
+            flippedCards.push(this);
+
+            if (flippedCards.length === 2) {
+                moves++;
+                document.getElementById('moves').textContent = `Mosse: ${moves}`;
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+            
+            if (card1.dataset.emoji === card2.dataset.emoji) {
+                matchedPairs++;
+                flippedCards = [];
+                
+                if (matchedPairs === memoryCards.length) {
+                    setTimeout(() => {
+                        alert(`🎉 HAI VINTO! Hai completato il gioco in ${moves} mosse! 🏆`);
+                    }, 500);
+                }
+            } else {
+                setTimeout(() => {
+                    card1.classList.remove('flipped');
+                    card2.classList.remove('flipped');
+                    flippedCards = [];
+                }, 1000);
+            }
+        }
+
+        loadQuestion();
+        initMemoryGame();
+    </script>
+</body>
+</html>
